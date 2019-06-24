@@ -71,5 +71,34 @@ extension TaskListViewController: UITableViewDataSource, UITableViewDelegate {
             cell.task = task
             return cell
     }
-
+    
+//    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+//        let normalAction = UIContextualAction(style: .normal,
+//                                              title: "normal") { (action, view, completionHandler) in
+//                                                completionHandler(true)
+//        }
+//        let destructiveAction = UIContextualAction(style: .destructive,
+//                                                   title: "destructive") { (action, veiw, completionHandler) in
+//                                                    // deleteTask()
+//                                                    self.dataSource.deleteTask(id: self.dataSource.data(at: indexPath.row)!.id)
+//                                                    completionHandler(true)
+//        }
+//        let configuration = UISwipeActionsConfiguration(actions: [normalAction, destructiveAction])
+//        return configuration
+//    }
+    
+//    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+//        return true
+//    }
+//
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            self.dataSource.deleteTask(id: self.dataSource.data(at: indexPath.row)!.id)
+            //self.dataSource.data.remove(at: indexPath.row)
+            //UserDefaults.standard.set(dataSource, forKey: "hoge")
+            //self.dataSource.save(task: self.dataSource.data(at: indexPath.row)!)
+             tableView.reloadData()
+        } else if editingStyle == .insert {
+       }
+    }
 }

@@ -25,7 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.rootViewController = navi
         window?.makeKeyAndVisible()
         
-        UserDefaults.standard.removeObject(forKey: "tasks")
+        // UserDefaults.standard.removeObject(forKey: "hoge")
 
         return true
     }

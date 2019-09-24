@@ -21,7 +21,6 @@ class TaskDataSource: NSObject{
     // UserDefaultsから保存したTask一覧を取得
     func loadData() {
         let userDefaults = UserDefaults.standard
-//        print(userDefaults.object(forKey: "hoge"))
         let taskDictionaries = userDefaults.object(forKey: "hoge") as? [[String: Any]]
         guard let t = taskDictionaries else {return}
         
@@ -32,13 +31,6 @@ class TaskDataSource: NSObject{
         }
     }
     
-//    func deleteData(){
-//        let userDefaults = UserDefaults.standard
-//
-//        userDefaults.removeObject(forKey: "hoge")
-//        userDefaults.synchronize()
-//    }
-    
     func deleteTask(id: String) {
         
         let tasks = self.tasks.filter ({ (taskDictionary) -> (Bool) in
@@ -48,7 +40,6 @@ class TaskDataSource: NSObject{
                 return false
             }})
 
-        //print(tasks)
         var taskDictionaries = [[String: Any]]()
         for t in tasks {
             let taskDictionary:[String: Any] = ["id": t.id, "text": t.text, "deadline": t.deadline]
@@ -90,12 +81,4 @@ class TaskDataSource: NSObject{
         return nil
     }
 }
-
-//extension Array where Element: Equatable {
-//    mutating func remove(value: Element) {
-//        if let i = self.index(of: value) {
-//            self.remove(at: i)
-//        }
-//    }
-//}
 

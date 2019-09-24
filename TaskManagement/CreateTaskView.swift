@@ -108,7 +108,6 @@ extension CreateTaskView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange,
                    replacementString string: String) -> Bool {
         
-        //let s = textField.text ?? ""
         let s = (textField.text! as NSString).replacingCharacters(in: range, with: string)
         
         if textField.tag == 0 {

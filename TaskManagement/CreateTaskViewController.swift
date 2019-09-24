@@ -31,12 +31,6 @@ class CreateTaskViewController: UIViewController {
         dataSource = TaskDataSource()
     }
     
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        dataSource.loadData()
-//    }
-    
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
